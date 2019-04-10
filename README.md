@@ -13,6 +13,8 @@
 
 ![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554865527664.png)
 
+![Alt text](https://github.com/weijiawu/kaggle_driver_state_detection/blob/master/image/output_DEb8oT.gif)
+
 
 **<font size = 5><font color=#000555555>数据集如下所示：**
 

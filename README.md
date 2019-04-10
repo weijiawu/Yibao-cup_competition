@@ -16,7 +16,7 @@
 
 **<font size = 5><font color=#000555555>数据集如下所示：**
 
-<div align=center>![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554865681406.png)
+![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554865681406.png)
 
 **<font size = 5><font color=#000555555>label：**
 

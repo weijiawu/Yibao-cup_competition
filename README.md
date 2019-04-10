@@ -11,9 +11,7 @@
 ## **简介**
  &#160;&#160;&#160;&#160;  &#160;&#160;&#160;&#160; **初赛十分简单，就是用分割网络对重叠文本进行分割即可，评价指标是IOU**
 
-![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554865527664.png)
-
-![Alt text](https://github.com/weijiawu/kaggle_driver_state_detection/blob/master/image/output_DEb8oT.gif)
+![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554865527664111.png)
 
 
 **<font size = 5><font color=#000555555>数据集如下所示：**

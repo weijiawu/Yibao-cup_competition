@@ -11,17 +11,6 @@
 ## **简介**
  &#160;&#160;&#160;&#160;  &#160;&#160;&#160;&#160; **初赛十分简单，就是用分割网络对重叠文本进行分割即可，评价指标是IOU**
 
-![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554865527664111.png)
-
-
-**<font size = 5><font color=#000555555>数据集如下所示：**
-
-![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554865681406.png)
-
-**<font size = 5><font color=#000555555>label：**
-
-<div align=center>![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554865755538.png)
-
 `目的就是将两个重叠数字分割开来，从实际场景出发就分割开收据上的重叠文本，以便于后期的信息采集处理。`
 
 ## **我们的解决方案**
@@ -53,18 +42,18 @@
 
 他主要的特殊就是引入了膨胀卷积，提出了**DRN（Dilated Residual Networks）**，他与Resnet，VGG主要的区别如下图
 
-<div align=center> ![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554866665604.png)
+![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554866665604.png)
 
 <font size=5><font color=#00888000>**FCN**
 
  &#160;&#160;&#160;&#160;**FCN（Fully Convolutional Network)的一个改进版本作为基本分割网络框架**，其实就是TextSnake的网络，基础结构为vgg16，取出下采样中的不同的五层特征进行上采样融合，主要加入的元素有FPN（Feature Pyramid Networks。
-<div align=center>![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554875089380.png)
+![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554875089380.png)
 
 <font size=5><font color=#00888000>**FCN**
 
  &#160;&#160;&#160;&#160;**U-net**用的是一个kaggle汽车分割冠军方案的网络，基础结构为vgg11。**传送门：**[Github](https://github.com/asanakoy/kaggle_carvana_segmentation)
 
- <div align=center> ![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554875437472.png)
+![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554875437472.png)
 
 
 <font size=5><font color=#00888000>**Loss:**
@@ -75,7 +64,7 @@
  &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;总的Loss函数设计思路：
 **<div align=center><font color=#0088888>f(x) = BCE + 1 - DICE.**
 
-<div align=center>![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554875794374.png)
+![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554875794374.png)
 
 
 ### **方案二_针对现实场景下的弱监督识别网络**
@@ -90,14 +79,14 @@
 &#160;&#160;&#160;&#160; 3、`现实中的单据形状尺寸相差很大。`
 其次精细分割任务中忌讳使用resize，而现实中单据形状大小都不一致，甚至可以说差距很大，因此大多数分割网络在单据分割中鲁棒性不强。
 
-<div align=center> ![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554876031923.png)
+![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554876031923.png)
 
 
 **<font color =#008888888><font size=5>我们提出的弱监督分割识别算法到底是做什么事情呢？**
 
 &#160;&#160;&#160;&#160; 弱监督学习分割识别网络 ———— **<font size=5>可以识别重叠文本**
 
-<div align=center>![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554876347227.png)
+![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554876347227.png)
 
 
 具体算法思路我就不在这里展开了，暂时不能开源。下面是一些人工合成的重叠单词数据集。
@@ -105,7 +94,7 @@
 &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; **数据生成说明：**数据底板采样于收据，单词收集于学术论文，颜色随机，**大小仿照真实场合文本大小，**在200*32的图片上随机重合生成（3万训练集，5千测试集）
 
 
-<div align=center> ![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554876582009.png)
+![Alt text](https://github.com/weijiawu/Yibao-cup_competition/tree/master/picture/1554876582009.png)
 
 
 &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; 在该生成数据上，**弱监督分割识别网络baseline在可以达到0.71**的准确率（备注：因时间有限，只用了一天的时间进行的匆忙实验）

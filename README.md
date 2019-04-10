@@ -6,14 +6,13 @@
 **KeyWords Plus**:     &#160;&#160;&#160;&#160;     	关于票据重叠文本的情况进行分割
 - **relevant** ：出发点：很多票据会出现打印字错位，甚至是打印字和底板重叠，利用分割算法进行分割重叠文本，以便于后期的单据识别。
 - **coding** ：[Github](https://github.com/weijiawu/Yibao-cup_competition)
-<!-- more -->
-<The rest of contents | 余下全文>
-
 
 
 ## **简介**
  &#160;&#160;&#160;&#160;  &#160;&#160;&#160;&#160; **初赛十分简单，就是用分割网络对重叠文本进行分割即可，评价指标是IOU**
-<div align=center> ![Alt text](./1554865527664.png)
+
+![Alt text](./1554865527664.png)
+
 
 **<font size = 5><font color=#000555555>数据集如下所示：**
 
@@ -22,6 +21,7 @@
 **<font size = 5><font color=#000555555>label：**
 
 <div align=center>![Alt text](./1554865755538.png)
+
 `目的就是将两个重叠数字分割开来，从实际场景出发就分割开收据上的重叠文本，以便于后期的信息采集处理。`
 
 ## **我们的解决方案**
@@ -63,7 +63,8 @@
 <font size=5><font color=#00888000>**FCN**
 
  &#160;&#160;&#160;&#160;**U-net**用的是一个kaggle汽车分割冠军方案的网络，基础结构为vgg11。**传送门：**[Github](https://github.com/asanakoy/kaggle_carvana_segmentation)
-<div align=center> ![Alt text](./1554875437472.png)
+
+ <div align=center> ![Alt text](./1554875437472.png)
 
 
 <font size=5><font color=#00888000>**Loss:**
@@ -73,6 +74,7 @@
  
  &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;总的Loss函数设计思路：
 **<div align=center><font color=#0088888>f(x) = BCE + 1 - DICE.**
+
 <div align=center>![Alt text](./1554875794374.png)
 
 
@@ -102,18 +104,14 @@
 
 &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; **数据生成说明：**数据底板采样于收据，单词收集于学术论文，颜色随机，**大小仿照真实场合文本大小，**在200*32的图片上随机重合生成（3万训练集，5千测试集）
 
+
 <div align=center> ![Alt text](./1554876582009.png)
+
 
 &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160; 在该生成数据上，**弱监督分割识别网络baseline在可以达到0.71**的准确率（备注：因时间有限，只用了一天的时间进行的匆忙实验）
 
 
 &#160;&#160;&#160;&#160; &#160;&#160;&#160;&#160;<font size=5>$$准确率 = 预测正确的单词数量/测试集单词总数 $$
 
+![Alt text](./1554876563891.png)
 
-<div align=center>![Alt text](./1554876563891.png)
-
-
-
-## 反馈与建议
-- 微博：[@柏林designer](https://weibo.com/5072970539/profile?topnav=1&wvr=6&is_all=1)
-- 邮箱：<weijia_wu@yeah.net>
